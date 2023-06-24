@@ -93,3 +93,15 @@ for line in sys.stdin:
 #) subquery
 #WHERE purchase_count > 114;
 
+#Exercise 6: Change the reducer to calculate the average sales per category
+
+import sys
+
+total_sales = 0
+count = 0
+previous_category = None
+
+for line in sys.stdin:
+    category, sales = line.strip().split("\t")
+
+    if previous_category != None
