@@ -41,3 +41,18 @@ sys.stdout.write("{0}\t{1}\n".format(previous_category, count))
 #GROUP BY category;
 
 
+#Exercise 3: Change the mapper to raise an error when there are not six elements in the tuple
+
+import sys
+
+for line in sys.stdin:
+    data = line.strip().split("\t")
+    if len(data) != 6:
+        raise ValueError("Tuple does not have six elements")
+    date, time, item, category, sales, payment = data
+    sys.stdout.write("{0}\t{1}\n".format(category, sales))
+
+#Equivalent SQL Command
+
+#N/A (This exercise does not have an SQL equivalent since it's about error handling)
+
