@@ -56,3 +56,20 @@ for line in sys.stdin:
 
 #N/A (This exercise does not have an SQL equivalent since it's about error handling)
 
+#Exercise 4: Change the mapper to calculate the sum only for the categories "Computers", "Cameras", and "Video Games"
+
+import sys
+
+for line in sys.stdin:
+    data = line.strip().split("\t")
+    date, time, item, category, sales, payment = data
+    if category in ["Computers", "Cameras", "Video Games"]:
+        sys.stdout.write("{0}\t{1}\n".format(category, sales))
+
+#Equivalent SQL Command
+
+#SELECT category, SUM(sales) AS total_sales
+#FROM minipurchases
+#WHERE category IN ('Computers', 'Cameras', 'Video Games')
+#GROUP BY category;
+
