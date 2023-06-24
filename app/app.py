@@ -73,3 +73,23 @@ for line in sys.stdin:
 #WHERE category IN ('Computers', 'Cameras', 'Video Games')
 #GROUP BY category;
 
+#Exercise 5: Change the reducer to show only categories that have a total count of more than 114 purchases
+
+
+import sys
+
+for line in sys.stdin:
+    category, _ = line.strip().split("\t")
+    if int(count) > 114:
+        sys.stdout.write("{0}\n".format(category))
+
+#Equivalent SQL Command
+
+#SELECT category
+#FROM (
+    #SELECT category, COUNT(*) AS purchase_count
+    #FROM minipurchases
+    #GROUP BY category
+#) subquery
+#WHERE purchase_count > 114;
+
