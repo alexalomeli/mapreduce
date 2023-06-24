@@ -13,3 +13,31 @@ for line in sys.stdin:
 #FROM minipurchases
 #GROUP BY category;
 
+#Exercise 2: Change the reducer to calculate the total number (count) of purchases for each category
+
+#!/usr/bin/env python
+
+import sys
+
+count = 0
+previous_category = None
+
+for line in sys.stdin:
+    category, _ = line.strip().split("\t")
+
+    if previous_category != None and previous_category != category:
+        sys.stdout.write("{0}\t{1}\n".format(previous_category, count))
+        count = 0
+
+    count += 1
+    previous_category = category
+
+sys.stdout.write("{0}\t{1}\n".format(previous_category, count))
+
+#Equivalent SQL Command
+
+#SELECT category, COUNT(*) AS purchase_count
+#FROM minipurchases
+#GROUP BY category;
+
+
